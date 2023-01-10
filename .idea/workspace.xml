@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aed0232-b9c2-4aea-99ad-45205d7c08ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/TreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/TreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -35,15 +33,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="245" lean-forward="true" selection-start-line="224" selection-start-column="3" selection-end-line="245" />
+            <state relative-caret-position="425">
+              <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7161#7162#0" expanded="true" />
+                <element signature="e#8151#8152#0" expanded="true" />
+                <element signature="e#8198#8199#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="92" column="8" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="94" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -53,10 +61,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
               <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-              <folding>
-                <element signature="e#155#156#0" expanded="true" />
-                <element signature="e#178#179#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -188,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/jiejiedai/api/InputParamSign.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/FuluAESEncrypt.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/utils/AbBase64.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/client/ClientManager.java" />
@@ -239,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayQueueStack.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/TreeNode.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" />
+        <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java" />
       </list>
     </option>
   </component>
@@ -249,10 +253,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2000" />
-    <option name="y" value="-618" />
-    <option name="width" value="1543" />
-    <option name="height" value="1060" />
+    <option name="x" value="48" />
+    <option name="y" value="25" />
+    <option name="width" value="1276" />
+    <option name="height" value="875" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -284,6 +288,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
               <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiejiedai" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LeetCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="leetcode" type="462c0819:PsiDirectoryNode" />
+              <item name="baseThoughtImprove" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -493,18 +505,19 @@
       <workItem from="1673057953668" duration="7469000" />
       <workItem from="1673142899716" duration="3496000" />
       <workItem from="1673147640258" duration="1796000" />
-      <workItem from="1673227945480" duration="3121000" />
+      <workItem from="1673227945480" duration="3341000" />
+      <workItem from="1673315433427" duration="4028000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="350074000" />
+    <option name="totallyTimeSpent" value="354322000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2000" y="-618" width="1543" height="1060" extended-state="0" />
+    <frame x="48" y="25" width="1276" height="875" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.23117921" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37065637" weight="0.2338441" />
       <window_info id="Structure" order="1" sideWeight="0.6293436" side_tool="true" weight="0.2778187" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -521,7 +534,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33992094" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33991683" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.2859025" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.39184952" />
@@ -598,13 +611,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java</url>
-          <line>250</line>
+          <line>290</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java</url>
-          <line>309</line>
+          <line>363</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
@@ -612,13 +625,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="143" column="17" selection-start-line="143" selection-start-column="17" selection-end-line="143" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/HashSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
@@ -964,6 +970,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/TreeNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseSortTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1024,25 +1037,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/TreeNode.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="425">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
           <folding>
-            <element signature="e#155#156#0" expanded="true" />
-            <element signature="e#178#179#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#8151#8152#0" expanded="true" />
+            <element signature="e#8198#8199#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="245" lean-forward="true" selection-start-line="224" selection-start-column="3" selection-end-line="245" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7161#7162#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="645">
+          <caret line="92" column="8" lean-forward="true" selection-start-line="92" selection-start-column="8" selection-end-line="94" selection-end-column="9" />
         </state>
       </provider>
     </entry>
