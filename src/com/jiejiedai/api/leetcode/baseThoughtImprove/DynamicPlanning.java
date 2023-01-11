@@ -2,6 +2,8 @@ package com.jiejiedai.api.leetcode.baseThoughtImprove;
 
 /**
  * 动态规划
+ *
+ * 1、思路：从前边的简单情况入手，简单分析 =》 推导动态规划方程
  */
 public class DynamicPlanning {
     /**
@@ -139,5 +141,112 @@ public class DynamicPlanning {
             }
         }
         return income;
+    }
+
+
+    /**
+     * 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
+     *
+     * 要求时间复杂度为O(n)。
+     *
+     * 示例1:
+     *
+     * 输入: nums = [-2,1,-3,4,-1,2,1,-5,4]
+     * 输出: 6
+     * 解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+     *
+     * 提示：
+     *
+     * 1 <= arr.length <= 10^5
+     * -100 <= arr[i] <= 100
+     *
+     * 链接：https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof
+     *
+     * 思路：
+     *
+     * i = 0; f(0) = -2
+     * i = 1; f(1) = max(f(0) + 1) , 1) = 1
+     * i = 2; f(2) = max(f(1) + -3 , -3) = -2
+     * ...
+     *
+     * 推出动态规划方程如下：
+     * f(i) = Math.max(f(i - 1) + nums[i]) , nums[i])
+     */
+    public int maxSubArray(int[] nums) {
+        int pre = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            pre = Math.max(pre + nums[i], nums[i]);
+            max = Math.max(max, pre);
+        }
+        return max;
+    }
+
+
+    /**
+     * 在一个 m*n 的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值（价值大于 0）。
+     * 你可以从棋盘的左上角开始拿格子里的礼物，并每次向右或者向下移动一格、直到到达棋盘的右下角。
+     * 给定一个棋盘及其上面的礼物的价值，请计算你最多能拿到多少价值的礼物？
+     *
+     *  
+     *
+     * 示例 1:
+     *
+     * 输入:
+     * [
+     *   [1,3,1],
+     *   [1,5,1],
+     *   [4,2,1]
+     * ]
+     * 输出: 12
+     * 解释: 路径 1→3→5→2→1 可以拿到最多价值的礼物
+     *  
+     *
+     * 提示：
+     *
+     * 0 < grid.length <= 200
+     * 0 < grid[0].length <= 200
+     *
+     *
+     * 链接：https://leetcode.cn/problems/li-wu-de-zui-da-jie-zhi-lcof
+     *
+     * 思路：
+     *
+     * 一、推出公式
+     *      每次在矩阵中，只能向左或者向下移动，所以
+     *      当grid(1,1)也就是5的值设为f(1,1)，选取最佳路径时，应该比较max(f(0,1), f(1,0))两个路径上的最大值 + grid(1,1)
+     *
+     *      那么我们可以大概推出动态规划方程：
+     *      f(i,j) = max(f(i - 1,j), f(i, j -1)) + grid(i,j)
+     *
+     *      但是需要特殊处理下i = 0;j = 0时的特殊情况。
+     *          1、i = 0 , j = 0; f(i,j) = grid(0,0)
+     *          2、i = 0 , j != 0: f(i,j) = f(i, j -1) + grid(i,j)
+     *          3、i != 0 , j = 9; f(i,j) = f(i - 1, j) + grid(i,j)
+     *          4、i,j != 0; f(i,j) = max(f(i - 1,j), f(i, j -1)) + grid(i,j)
+     *
+     * 二、优化空间复杂度
+     *      若我们把每个f(i,j)的值都存下来，需要o(N*M)，所以我们可以直接原地修改值
+     *
+     */
+    public int maxValue(int[][] grid) {
+
+        int n = grid.length;
+        int m = grid[0].length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (i == 0 && j == 0) continue;
+                if (i == 0) {
+                    grid[i][j] = grid[i][j - 1] + grid[i][j];
+                } else if (j == 0) {
+                    grid[i][j] = grid[i - 1][j] + grid[i][j];
+                } else {
+                    grid[i][j] = Math.max(grid[i][j - 1], grid[i - 1][j]) + grid[i][j];
+                }
+            }
+        }
+
+        return grid[n-1][m-1];
+
     }
 }
