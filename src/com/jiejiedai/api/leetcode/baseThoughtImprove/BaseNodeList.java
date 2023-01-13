@@ -75,9 +75,9 @@ public class BaseNodeList {
      * <p>
      * https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/
      * <p>
-     *
-     *     链表涉及返回就 存一份 head 用于返回
-     *
+     * <p>
+     * 链表涉及返回就 存一份 head 用于返回
+     * <p>
      * 思路一：迭代+节点拆分
      * 1、遍历node节点,创建新节点，拆到当前节点和当前节点.next中间，newNode().next = node.next,  node.next = newNode 上，
      * 2、再遍历node节点，将newNode 的 random节点，指向random.next节点。
@@ -141,5 +141,79 @@ public class BaseNodeList {
     private HashMap<Node, Node> map = new HashMap<>();
 
 
+    /**
+     * 给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。
+     * <p>
+     * 返回删除后的链表的头节点。
+     * <p>
+     * 注意：此题对比原题有改动
+     * <p>
+     * 示例 1:
+     * <p>
+     * 输入: head = [4,5,1,9], val = 5
+     * 输出: [4,1,9]
+     * 解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9.
+     * 示例 2:
+     * <p>
+     * 输入: head = [4,5,1,9], val = 1
+     * 输出: [4,5,9]
+     * 解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9.
+     * <p>
+     * 链接：https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof
+     */
+    public ListNode deleteNode(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+        if (head.val == val) {
+            return head.next;
+        }
+        ListNode res = head;
+        ListNode cur = head.next;
+        ListNode pre = head;
+        while (cur != null) {
+            if (cur.val == val) {
+                pre.next = cur.next;
+                break;
+            }
+            pre = cur;
+            cur = cur.next;
+        }
 
+        return res;
+    }
+
+    /**
+     * 输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。
+     * <p>
+     * 例如，一个链表有 6 个节点，从头节点开始，它们的值依次是 1、2、3、4、5、6。这个链表的倒数第 3 个节点是值为 4 的节点。
+     * <p>
+     *  
+     * <p>
+     * 示例：
+     * <p>
+     * 给定一个链表: 1->2->3->4->5, 和 k = 2.
+     * <p>
+     * 返回链表 4->5.
+     * <p>
+     * 链接：https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof
+     * <p>
+     * 思路：双指针
+     * 双指针：同向快慢指针、双向指针。这题我们用到的是同向快慢指针
+     */
+    public ListNode getKthFromEnd(ListNode head, int k) {
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null && k > 0) {
+            fast = fast.next;
+            k--;
+        }
+
+        while (fast!=null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
 }
