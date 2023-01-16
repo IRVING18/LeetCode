@@ -10,6 +10,7 @@ import java.util.Stack;
  * 链表
  * 1、pre 、cur 、next
  * 2、涉及返回就 存head 用于返回
+ * 3、双指针：同向、对向
  */
 public class BaseNodeList {
 
@@ -210,10 +211,96 @@ public class BaseNodeList {
             k--;
         }
 
-        while (fast!=null){
+        while (fast != null) {
             slow = slow.next;
             fast = fast.next;
         }
         return slow;
+    }
+
+
+    /**
+     * 剑指 Offer 25. 合并两个排序的链表
+     *
+     * @return
+     */
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode pre = new ListNode();
+        ListNode head = pre;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                pre.next = l1;
+                l1 = l1.next;
+            } else {
+                pre.next = l2;
+                l2 = l2.next;
+            }
+            pre = pre.next;
+        }
+
+        pre.next = l1 != null ? l1 : l2;
+
+        return head.next;
+    }
+
+
+    /**
+     * 剑指 Offer 52. 两个链表的第一个公共节点
+     * <p>
+     * https://leetcode.cn/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/
+     */
+    static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+//        if (headA == null || headB == null) {
+//            return null;
+//        }
+//        ListNode pre1A = headA;
+//        ListNode pre1B = headB;
+//        ListNode pre2A = headA;
+//        ListNode pre2B = headB;
+//
+//        ListNode cur1 = pre1A;
+//        ListNode cur2 = pre2B;
+//
+//        while (cur1 != null && cur2 != null) {
+//
+//            if (cur1 == cur2) {
+//                return cur1;
+//            }
+//            if (pre1A != null) {
+//                cur1 = pre1A;
+//                pre1A = pre1A.next;
+//            } else {
+//                cur1 = pre1B;
+//                pre1B = pre1B == null ? null : pre1B.next;
+//            }
+//            if (pre2B != null) {
+//                cur2 = pre2B;
+//                pre2B = pre2B.next;
+//            } else{
+//                cur2 = pre2A;
+//                pre2A = pre2A==null ? null: pre2A.next;
+//            }
+//
+//        }
+//
+//        return null;
+
+
+        //可简化成如下：
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode pA = headA, pB = headB;
+        //这块不会死循环，PA/PB 没有交集时会走到 都为null的时候跳出循环
+        while (pA != pB) {
+            pA = pA == null ? headB : pA.next;
+            pB = pB == null ? headA : pB.next;
+        }
+        return pA;
+    }
+
+
+    public static void main(String[] args) {
+        getIntersectionNode(new ListNode(1), new ListNode(2));
     }
 }

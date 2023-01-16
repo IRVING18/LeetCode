@@ -1,7 +1,6 @@
 package com.jiejiedai.api.leetcode.baseThoughtImprove;
 
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * 动态规划
@@ -274,6 +273,7 @@ public class DynamicPlanning {
     public int translateNum(int num) {
 
 
+        return 0;
 
     }
 

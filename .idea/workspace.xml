@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0aed0232-b9c2-4aea-99ad-45205d7c08ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/ListNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/ListNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseNodeList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseNodeList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java" afterDir="false" />
     </list>
@@ -28,11 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="271" column="58" selection-start-line="271" selection-start-column="58" selection-end-line="271" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="214">
+              <caret line="275" column="17" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -40,10 +38,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseNodeList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="204" column="8" lean-forward="true" selection-start-line="204" selection-start-column="8" selection-end-line="215" selection-end-column="20" />
+            <state relative-caret-position="864">
+              <caret line="287" column="29" selection-start-line="287" selection-start-column="29" selection-end-line="287" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#7461#7462#0" expanded="true" />
+                <element signature="e#7497#7498#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,7 +52,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
+            <state relative-caret-position="7680">
               <caret line="553" column="13" selection-start-line="553" selection-start-column="13" selection-end-line="553" selection-end-column="13" />
             </state>
           </provider>
@@ -61,8 +61,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-62">
-              <caret line="94" column="6" lean-forward="true" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
+            <state relative-caret-position="1410">
+              <caret line="94" column="6" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -82,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/ListNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="75">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -235,7 +235,6 @@
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/BaseString.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/BaseNodeList.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/BaseArrayQueueStack.java" />
-        <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/ListNode.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/SwordOfferTest.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/Node.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/ThoughtSearch.java" />
@@ -243,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/TreeNode.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java" />
+        <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/ListNode.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java" />
         <option value="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseNodeList.java" />
       </list>
@@ -257,7 +257,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-2000" />
     <option name="y" value="-618" />
-    <option name="width" value="1368" />
+    <option name="width" value="1634" />
     <option name="height" value="1127" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -266,6 +266,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,7 +305,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,6 +315,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -340,7 +341,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BaseTreeRecursion">
+  <component name="RunManager" selected="Application.BaseNodeList">
+    <configuration name="BaseNodeList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.jiejiedai.api.leetcode.baseThoughtImprove.BaseNodeList" />
+      <module name="jiejiedai" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiejiedai.api.leetcode.baseThoughtImprove.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BaseSortTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.jiejiedai.api.leetcode.baseThoughtImprove.BaseSortTest" />
       <module name="jiejiedai" />
@@ -393,39 +407,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SwordOfferTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.jiejiedai.api.leetcode.SwordOfferTest" />
-      <module name="jiejiedai" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jiejiedai.api.leetcode.baseThoughtImprove.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.jiejiedai.api.leetcode.Test" />
-      <module name="jiejiedai" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.jiejiedai.api.leetcode.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BaseNodeList" />
         <item itemvalue="Application.BaseTreeRecursion" />
         <item itemvalue="Application.BaseString" />
         <item itemvalue="Application.BaseSortTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.SwordOfferTest" />
       </list>
     </recent_temporary>
   </component>
@@ -511,18 +499,19 @@
       <workItem from="1673315433427" duration="4028000" />
       <workItem from="1673348966320" duration="233000" />
       <workItem from="1673400937774" duration="3845000" />
-      <workItem from="1673487720734" duration="7325000" />
+      <workItem from="1673487720734" duration="7819000" />
+      <workItem from="1673833236471" duration="3915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="365725000" />
+    <option name="totallyTimeSpent" value="370134000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2000" y="-618" width="1368" height="1127" extended-state="0" />
+    <frame x="-2000" y="-618" width="1634" height="1127" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.22021116" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.18592964" />
       <window_info id="Structure" order="1" sideWeight="0.6293436" side_tool="true" weight="0.2778187" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -531,17 +520,17 @@
       <window_info id="Favorites" order="6" sideWeight="0.6271777" side_tool="true" weight="0.2699115" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.19126819" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.37214136" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.1904762" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3712342" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.25655976" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25655976" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.2859025" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.2857143" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.39184952" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -966,6 +955,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7680">
+          <caret line="553" column="13" selection-start-line="553" selection-start-column="13" selection-end-line="553" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="94" column="6" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseSortTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -973,13 +976,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/ListNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1026,36 +1022,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java">
+    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/ListNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="94" column="6" lean-forward="true" selection-start-line="94" selection-start-column="6" selection-end-line="94" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="553" column="13" selection-start-line="553" selection-start-column="13" selection-end-line="553" selection-end-column="13" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/DynamicPlanning.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="271" column="58" selection-start-line="271" selection-start-column="58" selection-end-line="271" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="214">
+          <caret line="275" column="17" selection-start-line="275" selection-start-column="17" selection-end-line="275" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseNodeList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="204" column="8" lean-forward="true" selection-start-line="204" selection-start-column="8" selection-end-line="215" selection-end-column="20" />
+        <state relative-caret-position="864">
+          <caret line="287" column="29" selection-start-line="287" selection-start-column="29" selection-end-line="287" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#7461#7462#0" expanded="true" />
+            <element signature="e#7497#7498#0" expanded="true" />
           </folding>
         </state>
       </provider>
