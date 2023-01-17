@@ -136,5 +136,128 @@ public class BaseArrayMatrix {
     }
 
 
+    public static void main(String[] args) {
+//        TreeNode node = new TreeNode(1);
+//        TreeNode right = new TreeNode(2);
+//        node.left = null;
+//        node.right = right;
+//        System.out.println(node.val + ' ' + (node.left != null ? node.left.val : 'null') + ' ' + node.right.val);
+//
+//        mirrorTree(node);
+//        System.out.println(node.val + ' ' + (node.left != null ? node.left.val : 'null') + ' ' + (node.right != null ? node.right.val : 'null'));
+
+
+//        char[][] arr = new char[][]{
+//                {'A', 'B', 'C', 'C'},
+//                {'S', 'F', 'C', 'S'},
+//                {'A', 'D', 'E', 'E'}
+//        };
+//
+//        System.out.println(exist1(arr, "ABCCED") ? "true" : "false");
+
+        System.out.println(35  % 10 +"   "+35 / 10);
+    }
+
+    /**
+     * 剑指 Offer 12. 矩阵中的路径
+     * <p>
+     * 给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。
+     *  {'A', 'B', 'C', 'C'},
+     *  {'S', 'F', 'C', 'S'},
+     *  {'A', 'D', 'E', 'E'}
+     *
+     *  ABCCED
+     *
+     * <p>
+     * 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+     * <p>
+     * 链接：https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof
+     *
+     *
+     * 思路：递归
+     */
+    public static boolean exist1(char[][] board, String word) {
+        int r = board.length;
+        int l = board[0].length;
+
+        boolean[][] visited = new boolean[r][l];
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < l; j++) {
+                if (check1(board, visited, word, i, j, 0)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    public static boolean check1(char[][] board, boolean[][] visited, String word, int r, int l, int k) {
+        if (board[r][l] != word.charAt(k)) {
+            return false;
+        } else if (k == word.length() - 1) {
+            return true;
+        }
+
+        int[][] range = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        visited[r][l] = true;
+        for (int i = 0; i < range.length; i++) {
+            int newr = r + range[i][0];
+            int newl = l + range[i][1];
+            if (newr >= 0 && newr < board.length && newl >= 0 && newl < board[0].length) {
+                if (!visited[newr][newl]) {
+                    if (check1(board, visited, word, newr, newl, k + 1)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        visited[r][l] = false;
+        return false;
+    }
+
+
+    /**
+     * 面试题13. 机器人的运动范围
+     *
+     * 地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。
+     * 一个机器人从坐标 [0, 0] 的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。
+     * 例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7=18。但它不能进入方格 [35, 38]，因为3+5+3+8=19。请问该机器人能够到达多少个格子？
+     *
+     *
+     * 示例 1：
+     * 输入：m = 2, n = 3, k = 1
+     * 输出：3
+     *
+     * 示例 2：
+     * 输入：m = 3, n = 1, k = 0
+     * 输出：1
+     *
+     * 提示：
+     * 1 <= n,m <= 100
+     * 0 <= k <= 20
+     *
+     * 链接：https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof
+     */
+    public int movingCount(int m, int n, int k) {
+        boolean[][] visited = new boolean[m][n];
+        return dfs(0, 0, m, n, k, visited);
+    }
+
+
+    public int dfs(int i, int j, int m, int n, int k, boolean[][] visited) {
+        if (i >= m || j >= n || k < getSum(i) + getSum(j) || visited[i][j]) {
+            return 0;
+        }
+
+        visited[i][j] = true;
+        return 1 + dfs(i + 1, j, m, n, k, visited) + dfs(i, j + 1, m, n, k, visited);
+    }
+
+    public int getSum(int num) {
+        return num % 10 + num / 10;
+    }
+
 
 }
