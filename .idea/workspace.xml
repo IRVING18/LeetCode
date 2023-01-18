@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aed0232-b9c2-4aea-99ad-45205d7c08ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/MD5Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/MD5Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -71,13 +70,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="135">
+              <caret line="591" column="3" selection-start-line="591" selection-start-column="3" selection-end-line="620" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#8151#8152#0" expanded="true" />
                 <element signature="e#8198#8199#0" expanded="true" />
                 <element signature="e#12551#12552#0" expanded="true" />
+                <element signature="e#14952#14953#0" expanded="true" />
+                <element signature="e#14986#14987#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,15 +98,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
               <caret line="655" column="16" selection-start-line="655" selection-start-column="16" selection-end-line="655" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseHashTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -505,12 +497,12 @@
       <workItem from="1673400937774" duration="3845000" />
       <workItem from="1673487720734" duration="7819000" />
       <workItem from="1673833236471" duration="4188000" />
-      <workItem from="1673919770563" duration="14405000" />
+      <workItem from="1673919770563" duration="15987000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="384812000" />
+    <option name="totallyTimeSpent" value="386394000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,7 +534,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.31875607" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.31875607" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.2857143" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.39184952" />
@@ -881,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/Deque.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
@@ -1046,15 +1031,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        <state relative-caret-position="135">
+          <caret line="591" column="3" selection-start-line="591" selection-start-column="3" selection-end-line="620" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#8151#8152#0" expanded="true" />
             <element signature="e#8198#8199#0" expanded="true" />
             <element signature="e#12551#12552#0" expanded="true" />
+            <element signature="e#14952#14953#0" expanded="true" />
+            <element signature="e#14986#14987#0" expanded="true" />
           </folding>
         </state>
       </provider>

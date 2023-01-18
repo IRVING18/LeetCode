@@ -568,8 +568,75 @@ public class BaseTreeRecursion {
     }
 
 
+    /**
+     * 剑指 Offer 36. 二叉搜索树与双向链表
+     *
+     * https://leetcode.cn/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cafihze
+     *
+     * 思路：
+     * （1）递归中序遍历
+     * 1、终止条件：cur = null
+     * 2、递归左子树：dfs(node.left)
+     * 3、构建链表：
+     *      1、当pre为null时，说明在head节点上，记下head
+     *      2、当pre不为null，pre.right = cur; cur.left = pre;
+     *      3、保存cur，pre = cur。即当前cur 是后续节点的 pre
+     *
+     * （2）treeToDoublyList
+     * 1、特例处理：root == null 直接return
+     * 2、pre置为null
+     * 3、进行中序遍历
+     * 4、头尾节点处理：中序遍历结束后，pre就是tail节点：pre.left = head；head.right = pre
+     * 5、直接返回head
+     */
+    Node pre = null;
+    Node head = null;
+    public Node treeToDoublyList(Node root) {
 
+        if (root == null)return null;
+        pre = null;
+        //中序遍历
+        dfsNode(root);
+        //头尾节点处理
+        pre.right = head;
+        head.left = pre;
+        return head;
+    }
 
+    private void dfsNode(Node node) {
+        if (node == null) return;
+        //左
+        dfsNode(node.left);
+        //根
+        //pre为null说明，当前节点为最左边的叶子节点，也就是最小值，head
+        if (pre == null) {
+            head = node;
+        } else {
+            node.left = pre;
+            pre.right = node;
+        }
+        pre = node;
+        //右
+        dfsNode(node.right);
+    }
+
+    class Node {
+        public int val;
+        public Node left;
+        public Node right;
+
+        public Node() {}
+
+        public Node(int _val) {
+            val = _val;
+        }
+
+        public Node(int _val,Node _left,Node _right) {
+            val = _val;
+            left = _left;
+            right = _right;
+        }
+    };
 
 
 }
