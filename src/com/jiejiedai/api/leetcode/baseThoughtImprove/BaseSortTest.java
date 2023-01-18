@@ -1,5 +1,7 @@
 package com.jiejiedai.api.leetcode.baseThoughtImprove;
 
+import com.sun.org.apache.xpath.internal.operations.String;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -445,8 +447,8 @@ public class BaseSortTest {
     }
 
 
-    public static void main(String[] args) {
-        int[] arr = {9, 1, 0, 10, -1, 8, 5, 100, 1};
+//    public static void main(String[] args) {
+//        int[] arr = {9, 1, 0, 10, -1, 8, 5, 100, 1};
         //1、冒泡
 //        System.out.println(Arrays.toString(bubbleSort3(arr)));
         //2、选择
@@ -471,9 +473,9 @@ public class BaseSortTest {
 //        basket(arr);
 //        System.out.println(Arrays.toString(arr));
 
-        String str = "a";
-        System.out.println(str.substring(0, 1));
-    }
+//        String str = "a";
+//        System.out.println(str.substring(0, 1));
+//    }
 
     /**
      * 1、冒泡：稳定排序、原地排序、时间复杂度O(n^2) 、空间复杂度O(1)
@@ -980,4 +982,149 @@ public class BaseSortTest {
 //    }
 
 
+    /**
+     * 面试题61. 扑克牌中的顺子
+     * 从若干副扑克牌中随机抽 5 张牌，判断是不是一个顺子，即这5张牌是不是连续的。2～10为数字本身，A为1，J为11，Q为12，K为13，
+     * 而大、小王为 0 ，可以看成任意数字。A 不能视为 14。
+     *
+     *
+     * 限制：
+     * 数组长度为 5
+     * 数组的数取值为 [0, 13] .
+     *
+     * 链接：https://leetcode.cn/problems/bu-ke-pai-zhong-de-shun-zi-lcof
+     * @param nums
+     * @return
+     */
+    public boolean isStraight(int[] nums) {
+        quickSort1(nums, 0, nums.length - 1);
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                min = Math.min(nums[i],min);
+                if (i+1 < nums.length &&nums[i] == nums[i + 1]) {
+                    return false;
+                }
+            }
+        }
+
+        if (nums[nums.length - 1] - min < 5){
+            return true;
+        }
+        return false;
+
+    }
+
+    /**
+     * 递归：
+     * 1、结束条件 low >= high
+     * 1、取start角标的数n，放到他应该在的中间位置上，大于n的放右边，小于n的放左边
+     * 2、分成两半：排这个low -> n的新角标， n的新角标 -> high
+     */
+    public void quickSort1(int[] arr, int low, int high){
+        if (low >= high){
+            return;
+        }
+        int start = low;
+        int end = high;
+
+        int sw = arr[low];
+        while (start < end) {
+
+            //从end王前推，找到第一个小于sw的数
+            while (start < end && sw < arr[end]) {
+                end--;
+            }
+
+            if (start < end) {
+                arr[start++] = arr[end];
+            }
+
+            //从start往后推，找到第一个大于sw的数
+            while (start < end && sw > arr[start]) {
+                start ++;
+            }
+            if (start < end) {
+                arr[end --] = arr[start];
+            }
+        }
+
+        arr[start] = sw;
+
+        quickSort1(arr,start + 1, high);
+        quickSort1(arr,low, start - 1);
+    }
+
+
+    /**
+     * 面试题45. 把数组排成最小的数
+     *
+     * 输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+     *
+     * 示例 1:
+     * 输入: [10,2]
+     * 输出: "102"
+     *
+     * 示例 2:
+     * 输入: [3,30,34,5,9]
+     * 输出: "3033459"
+     *
+     * 链接：https://leetcode.cn/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof
+     *
+     * 思路：
+     * 1、xy 如何判断 谁该排前边？ xy < yx =》 就说明 x 该排在前边。例如10，2 ：102 < 210 所以应该返回[10,2]
+     * 2、写个快排，只是判断条件换成 如上。
+     */
+    public static String minNumber(int[] nums) {
+        quickSortSpecial(nums,0,nums.length -1);
+        StringBuilder sb = new StringBuilder();
+        for(int n: nums){
+            sb.append(n);
+        }
+        return sb.toString();
+    }
+
+    private static void quickSortSpecial(int[] nums, int low, int high) {
+        if (low >= high){
+            return;
+        }
+
+        int start=low;
+        int end =high;
+        int sw = nums[low];
+
+        while (start < end){
+            while (start < end && isLeftBig(nums[end], sw)) {
+                end--;
+            }
+            if (start<end){
+                nums[start++] = nums[end];
+            }
+            while (start<end && isLeftBig(sw,nums[start])){
+                start++;
+            }
+            if (start<end){
+                nums[end--] = nums[start];
+            }
+        }
+
+        nums[start] = sw;
+
+        quickSortSpecial(nums, low, start - 1);
+        quickSortSpecial(nums, start+1, high);
+    }
+
+    /**
+     * 1、int + "" + int ：字符要在中间，否则会先计算int相加再拼接
+     * 2、compareTo()比较的每个char的ASCII码的大小，0-9的ASCII正好是顺序的，所以可直接用。
+     */
+    private static boolean isLeftBig(int left,int right) {
+        return (left + "" + right).compareTo(right + "" + left) > 0;
+//        return Long.parseLong(left + "" + right) > Long.parseLong(right + "" + left);
+    }
+
+    public static void main(String[] args) {
+        int arr[] = new int[]{10,2};
+        System.out.println(minNumber(arr));
+    }
 }
