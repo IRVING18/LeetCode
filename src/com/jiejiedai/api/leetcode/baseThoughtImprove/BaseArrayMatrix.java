@@ -239,6 +239,10 @@ public class BaseArrayMatrix {
      * 0 <= k <= 20
      *
      * 链接：https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof
+     *
+     *
+     * 思路一：递归算法
+     * todo 思路二：广度优先算法：https://leetcode.cn/tag/breadth-first-search/problemset/
      */
     public int movingCount(int m, int n, int k) {
         boolean[][] visited = new boolean[m][n];

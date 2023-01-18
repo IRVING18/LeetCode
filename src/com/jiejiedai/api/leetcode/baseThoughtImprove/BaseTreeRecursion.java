@@ -10,6 +10,18 @@ import java.util.*;
  * 树的操作：
  * 1、利用Queue队列
  * 2、递归
+ * 3、中序遍历：二叉查找树的特性，可递归打印小->大，大-> 小
+ *          二叉查找树特性：中序遍历
+ *           小->大：
+ *               recur(node.left) 左
+ *               node.val 根
+ *               recur(node.right) 右
+ *           大->小：
+ *               recur(node.right) 右
+ *               node.val 根
+ *               recur(node.left) 左
+ * 3、广度优先算法
+ * 4、深度优先算法 https://leetcode.cn/tag/depth-first-search/problemset/
  */
 public class BaseTreeRecursion {
 
@@ -482,15 +494,78 @@ public class BaseTreeRecursion {
     }
 
 
+    /**
+     *
+     * 剑指 Offer 34. 二叉树中和为某一值的路径
+     *
+     *
+     * 思路一：递归
+     * 链接：https://leetcode.cn/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/solution/mian-shi-ti-34-er-cha-shu-zhong-he-wei-mou-yi-zh-5/
+     * 递推参数： 当前节点 root ，当前目标值 tar 。
+     * 终止条件： 若节点 root 为空，则直接返回。
+     * 递推工作：
+     *      1、路径更新： 将当前节点值 root.val 加入路径 path ；
+     *      2、目标值更新： tar = tar - root.val（即目标值 tar 从 sum 减至 00 ）；
+     *      3、路径记录： 当 ① root 为叶节点 且 ② 路径和等于目标值 ，则将此路径 path 加入 res 。
+     *      4、先序遍历： 递归左 / 右子节点。
+     *      5、路径恢复： 向上回溯前，需要将当前节点从路径 path 中删除，即执行 path.pop() 。
+     *
+     * 思路二：深度优先算法
+     *
+     * todo https://leetcode.cn/tag/depth-first-search/problemset/
+     */
+    LinkedList<List<Integer>> res = new LinkedList<>();
+    LinkedList<Integer> path = new LinkedList<>();
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+        recur(root, sum);
+        return res;
+    }
+    void recur(TreeNode root, int tar) {
+        if(root == null) return;
+        path.add(root.val);
+        tar -= root.val;
+        if (tar == 0 && root.left == null && root.right == null){
+            //深复制一份存储到res中
+            res.add(new LinkedList<Integer>(path));
+        }
+        recur(root.left,tar);
+        recur(root.right,tar);
+        //路径恢复
+        path.removeLast();
+    }
 
 
+    /**
+     *
+     * 二叉查找树特性：中序遍历
+     *  小->大：
+     *      recur(node.left) 左
+     *      node.val 根
+     *      recur(node.right) 右
+     *
+     *  大->小：
+     *      recur(node.right) 右
+     *      node.val 根
+     *      recur(node.left) 左
+     */
+    int kKth;
+    int resKth;
+    public int kthLargest(TreeNode root, int k) {
+        this.kKth = k;
+        recurKth(root);
+        return resKth;
+    }
 
-
-
-
-
-
-
+    private void recurKth(TreeNode node){
+        if (node == null) return;
+        //大->小 中序遍历
+        recurKth(node.right); //右
+        if (--kKth == 0) {
+            resKth = node.val; //根
+            return;
+        }
+        recurKth(node.left); //左
+    }
 
 
 
