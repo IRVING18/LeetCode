@@ -8,7 +8,7 @@ import java.util.Stack;
 
 /**
  * 链表
- * 1、pre 、cur 、next
+ * 1、pre 、cur 、next : PCN
  * 2、涉及返回就 存head 用于返回
  * 3、双指针：同向、对向
  */

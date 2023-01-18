@@ -316,7 +316,7 @@ public class BaseSortTest {
 
 
     /**
-     * 选择排序-堆排序
+     * 堆排序
      *
      * @param array 待排序数组
      * @return 已排序数组
@@ -1126,4 +1126,61 @@ public class BaseSortTest {
         int arr[] = new int[]{10,2};
         System.out.println(minNumber(arr));
     }
+
+    /**
+     * 剑指 Offer 40. 最小的k个数
+     *
+     * 输入整数数组 arr ，找出其中最小的 k 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。
+     *
+     * https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof/
+     *
+     * 思路：快排
+     * 截断条件：
+     * //若k < start，那么结果就在左边数组中，
+     * //若k > start, 那么结果在右边数组中，
+     * //k == i,那么说明当前就ok了
+     */
+    public int[] getLeastNumbers(int[] arr, int k) {
+        qS(arr,0,arr.length - 1,k);
+        return Arrays.copyOf(arr,k);
+    }
+
+    private void qS(int[] arr, int low, int high, int k) {
+        if (low >= high) {
+            return;
+        }
+
+        int start = low;
+        int end = high;
+
+        int sw = arr[low];
+
+        while (start < end) {
+            while (start < end && arr[end] >= sw) end--;
+            while (start < end && arr[start] <= sw) start++;
+            swap1(arr, start, end);
+        }
+        swap1(arr, low, start);
+
+        //若k < start，那么结果就在左边数组中，
+        //若k > start, 那么结果在右边数组中，
+        //k == i,那么说明当前就ok了
+        if (k > start) {
+            qS(arr, start + 1, high, k);
+        }
+        if (k < start) {
+            qS(arr, low, start - 1, k);
+        }
+        if (k == start) {
+            return;
+        }
+    }
+
+    private void swap1(int[] arr, int i, int j){
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+
 }
