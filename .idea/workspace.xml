@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0aed0232-b9c2-4aea-99ad-45205d7c08ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
@@ -80,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="919">
-              <caret line="665" column="19" selection-start-line="665" selection-start-column="19" selection-end-line="665" selection-end-column="19" />
+            <state relative-caret-position="638">
+              <caret line="684" column="3" selection-start-line="684" selection-start-column="3" selection-end-line="696" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#12509#12510#0" expanded="true" />
@@ -508,12 +507,12 @@
       <workItem from="1673833236471" duration="4188000" />
       <workItem from="1673919770563" duration="17410000" />
       <workItem from="1674020477732" duration="9729000" />
-      <workItem from="1675043629994" duration="1329000" />
+      <workItem from="1675043629994" duration="3235000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="398875000" />
+    <option name="totallyTimeSpent" value="400781000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -528,7 +527,7 @@
     <frame x="-2000" y="-618" width="1355" height="1127" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.20639756" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.20639756" />
       <window_info id="Structure" order="1" sideWeight="0.6293436" side_tool="true" weight="0.2778187" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -545,7 +544,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.6083576" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3488824" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.2857143" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.39184952" />
@@ -622,13 +621,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java</url>
-          <line>302</line>
+          <line>303</line>
           <properties />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java</url>
-          <line>375</line>
+          <line>376</line>
           <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
@@ -1075,8 +1074,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseTreeRecursion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="919">
-          <caret line="665" column="19" selection-start-line="665" selection-start-column="19" selection-end-line="665" selection-end-column="19" />
+        <state relative-caret-position="638">
+          <caret line="684" column="3" selection-start-line="684" selection-start-column="3" selection-end-line="696" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#12509#12510#0" expanded="true" />

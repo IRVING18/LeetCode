@@ -20,8 +20,9 @@ import java.util.*;
  *               recur(node.right) 右
  *               node.val 根
  *               recur(node.left) 左
- * 3、广度优先算法
- * 4、深度优先算法 https://leetcode.cn/tag/depth-first-search/problemset/
+ * 3、广度优先算法 : 结合队列
+ * 4、深度优先算法 : 结合 递归 或 栈
+ * https://leetcode.cn/tag/depth-first-search/problemset/
  */
 public class BaseTreeRecursion {
 
@@ -669,6 +670,40 @@ public class BaseTreeRecursion {
         return res;
     }
 
+    /**
+     * 方法一：后序遍历 + 剪枝 （从底至顶）
+     * 终止条件：
+     *  1、root = null 返回0
+     *  2、left == -1 剪枝：中断
+     *  3、right == -1 剪枝：中断
+     *  4、abs(left - right) > 1 剪枝：中断
+     * 递归left、right
+     *
+     *
+     * 方法二：先序遍历 + 判断深度 （从顶至底）
+     */
+    public boolean isBalanced(TreeNode root) {
+//        //1、后序遍历 + 剪枝
+//        return recurr(root) != -1;
 
+        //先序遍历 + 判断深度<用后序遍历即深度优先> （从顶至底）
+        if (root == null) return true;
+        return Math.abs(maxDep(root.left) - maxDep(root.right)) < 2 && isBalanced(root.left) && isBalanced(root.right);
+    }
+
+    private int maxDep(TreeNode node) {
+        if (node == null) return 0;
+        return Math.max(maxDep(node.left), maxDep(node.right)) + 1;
+    }
+
+    private int recurr(TreeNode root) {
+        if (root == null) return 0;
+        int left = recurr(root.left);
+        if (left == -1) return -1;
+        int right = recurr(root.right);
+        if (right == -1) return -1;
+
+        return Math.abs(left - right) > 1 ? -1 : Math.max(left, right) + 1;
+    }
 
 }
