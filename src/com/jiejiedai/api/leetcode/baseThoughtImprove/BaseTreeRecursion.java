@@ -507,7 +507,7 @@ public class BaseTreeRecursion {
      *      1、路径更新： 将当前节点值 root.val 加入路径 path ；
      *      2、目标值更新： tar = tar - root.val（即目标值 tar 从 sum 减至 00 ）；
      *      3、路径记录： 当 ① root 为叶节点 且 ② 路径和等于目标值 ，则将此路径 path 加入 res 。
-     *      4、先序遍历： 递归左 / 右子节点。
+     *      4、中序遍历： 递归左 / 右子节点。
      *      5、路径恢复： 向上回溯前，需要将当前节点从路径 path 中删除，即执行 path.pop() 。
      *
      * 思路二：深度优先算法
@@ -636,7 +636,39 @@ public class BaseTreeRecursion {
             left = _left;
             right = _right;
         }
-    };
+    }
+
+    /**
+     * 一、深度优先搜索（后序遍历）：栈 或者 递归
+     * 二、广度优先算法（层序遍历）：队列
+     */
+    public int maxDepth(TreeNode root) {
+//        //深度优先
+//        if (root == null){
+//            return 0;
+//        }
+//        return Math.max(maxDepth(root.left),maxDepth(root.right)) + 1;
+
+        //广度优先
+        if (root == null){
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        int res = 0;
+
+        while (!queue.isEmpty()){
+            Queue<TreeNode> tmp = new LinkedList<TreeNode>();
+            for(TreeNode node: queue){
+                if (node.left != null) tmp.add(node.left);
+                if (node.right != null) tmp.add(node.right);
+            }
+            queue = tmp;
+            res++;
+        }
+        return res;
+    }
+
 
 
 }
