@@ -1,5 +1,6 @@
 package com.jiejiedai.api.leetcode.baseThoughtImprove;
 
+import com.jiejiedai.api.leetcode.ListNode;
 import com.jiejiedai.api.leetcode.TreeNode;
 
 import java.util.*;
@@ -10,21 +11,153 @@ import java.util.*;
  * 树的操作：
  * 1、利用Queue队列
  * 2、递归
- * 3、中序遍历：二叉查找树的特性，可递归打印小->大，大-> 小
- *          二叉查找树特性：中序遍历
- *           小->大：
- *               recur(node.left) 左
- *               node.val 根
- *               recur(node.right) 右
- *           大->小：
- *               recur(node.right) 右
- *               node.val 根
- *               recur(node.left) 左
+ * 3、遍历
+ *      3.1 前序遍历 根->left->right ：递归、stack
+ *      3.2 中序遍历 left->根->right ：递归、stack
+ *      3.3 后序遍历 left->right->根 ：递归、stack
+ *      3.4 层序遍历 ：利用queue队列
  * 3、广度优先算法 : 结合队列
- * 4、深度优先算法 : 结合 递归 或 栈
+ * 4、深度优先算法 : 结合 递归 或 栈 （前序、中序、后序）
  * https://leetcode.cn/tag/depth-first-search/problemset/
+ * 5、二叉查找树的特性：中序遍历：，可递归打印小->大，大-> 小
+ *      二叉查找树特性：中序遍历
+ *       小->大：
+ *           recur(node.left) 左
+ *           node.val 根
+ *           recur(node.right) 右
+ *       大->小：
+ *           recur(node.right) 右
+ *           node.val 根
+ *           recur(node.left) 左
+ *
  */
 public class BaseTreeRecursion {
+
+    /**
+     * 基础：前序遍历
+     * 1、递归
+     * 2、迭代：结合stack实现
+     */
+    public List<Integer> preorderTraversal(TreeNode root) {
+//        //1、递归
+//        ArrayList<Integer> result = new ArrayList<>();
+//        preorderRecr(root, result);
+//        return result;
+
+        //2、迭代
+        if (root == null){
+            return null;
+        }
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode tmp = root;
+        while (tmp != null || !stack.isEmpty()) {
+            while (tmp != null){
+                result.add(tmp.val);
+                stack.push(tmp);
+                tmp = tmp.left;
+            }
+            TreeNode pop = stack.pop();
+            tmp = pop.right;
+        }
+        return result;
+    }
+
+    private void preorderRecr(TreeNode root, List<Integer> list) {
+        if (root == null){
+            return;
+        }
+        list.add(root.val);
+        preorderRecr(root.left, list);
+        preorderRecr(root.right, list);
+    }
+
+    /**
+     * 基础：中序遍历
+     * 1、递归
+     * 2、迭代：结合stack实现
+     *   2.1 root入栈后，优先把所有left都入栈
+     */
+    public List<Integer> inorderTraversal(TreeNode root) {
+//        //1、递归
+//        ArrayList<Integer> result = new ArrayList<>();
+//        inorderRecr(root, result);
+//        return result;
+
+
+        //2、迭代
+        if (root == null){
+            return null;
+        }
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode tmp = root;
+        while (tmp != null || !stack.isEmpty()) {
+            while (tmp != null){
+                stack.push(tmp);
+                tmp = tmp.left;
+            }
+            TreeNode pop = stack.pop();
+            result.add(pop.val);
+            tmp = pop.right;
+        }
+        return result;
+    }
+
+    private void inorderRecr(TreeNode root, List<Integer> list) {
+        if (root == null){
+            return;
+        }
+        preorderRecr(root.left, list);
+        list.add(root.val);
+        preorderRecr(root.right, list);
+    }
+
+
+    /**
+     * 基础：后序遍历
+     * 1、递归
+     * 2、迭代：结合stack实现
+     */
+    public List<Integer> postorderTraversal(TreeNode root) {
+//        //1、递归
+//        ArrayList<Integer> result = new ArrayList<>();
+//        postorderRecr(root, result);
+//        return result;
+
+        //2、迭代 好理解版
+        if (root == null){
+            return null;
+        }
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode node = stack.peek();
+            if (node.left == null && node.right == null) {
+                result.add(stack.pop().val);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.left);
+            }
+        }
+        return result;
+    }
+
+    private void postorderRecr(TreeNode root, List<Integer> list) {
+        if (root == null){
+            return;
+        }
+        preorderRecr(root.left, list);
+        preorderRecr(root.right, list);
+        list.add(root.val);
+    }
+
+
+
 
     /**
      * 剑指 Offer 32 - I. 从上到下打印二叉树
@@ -640,6 +773,12 @@ public class BaseTreeRecursion {
     }
 
     /**
+     *剑指 Offer 55 - I. 二叉树的深度
+     *
+     * 输入一棵二叉树的根节点，求该树的深度。从根节点到叶节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度为树的深度。
+     *
+     *
+     * https://leetcode.cn/problems/er-cha-shu-de-shen-du-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cafihze
      * 一、深度优先搜索（后序遍历）：栈 或者 递归
      * 二、广度优先算法（层序遍历）：队列
      */
@@ -671,6 +810,12 @@ public class BaseTreeRecursion {
     }
 
     /**
+     * 剑指 Offer 55 - II. 平衡二叉树
+     *
+     * 输入一棵二叉树的根节点，判断该树是不是平衡二叉树。如果某二叉树中任意节点的左右子树的深度相差不超过1，那么它就是一棵平衡二叉树。
+     *
+     * https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/submissions/
+     *
      * 方法一：后序遍历 + 剪枝 （从底至顶）
      * 终止条件：
      *  1、root = null 返回0
@@ -706,4 +851,61 @@ public class BaseTreeRecursion {
         return Math.abs(left - right) > 1 ? -1 : Math.max(left, right) + 1;
     }
 
+
+    /**
+     *
+     * 用乘除：直接等差数列求和 (n * (n + 1)) / 2
+     * 用递归： 需要用if
+     *
+     * 所以结合 && 运算符结束递归
+     */
+    public int sumNums(int n) {
+//        if (n == 1) return 1;
+//        return sumNums(n - 1) + n;
+
+        boolean f = n > 1 && (n += sumNums(n - 1)) > 0 ;
+        return n;
+    }
+
+    /**
+     * 思路：
+     * 1、二叉搜索树 => 左子树 < node < 右子树
+     * p、q，都小于node，说明在左子树中
+     * p、q，都大于node，说明在左子树中
+     * 否则当前node就是结果
+     * <p>
+     * 方案一：迭代
+     * 方案二：递归
+     */
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        //迭代
+//        while (root != null) {
+//            if (root.val < p.val && root.val < q.val) {
+//                root = root.right;
+//            } else if (root.val > p.val && root.val > q.val) {
+//                root = root.left;
+//            } else {
+//                return root;
+//            }
+//        }
+//        return null;
+
+        //递归
+        if (root.val < p.val && root.val < q.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        } else if (root.val > p.val && root.val > q.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        } else {
+            return root;
+        }
+    }
+
+    /**
+     * 条件：二叉树
+     *
+     * 题解：https://leetcode.cn/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/solution/mian-shi-ti-68-ii-er-cha-shu-de-zui-jin-gong-gon-7/
+     */
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+
+    }
 }
