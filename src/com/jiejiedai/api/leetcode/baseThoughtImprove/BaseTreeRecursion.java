@@ -16,9 +16,10 @@ import java.util.*;
  *      3.2 中序遍历 left->根->right ：递归、stack
  *      3.3 后序遍历 left->right->根 ：递归、stack
  *      3.4 层序遍历 ：利用queue队列
- * 3、广度优先算法 : 结合队列
+ * 3、广度优先算法 : 结合队列 （层序遍历）
  * 4、深度优先算法 : 结合 递归 或 栈 （前序、中序、后序）
  * https://leetcode.cn/tag/depth-first-search/problemset/
+ *
  * 5、二叉查找树的特性：中序遍历：，可递归打印小->大，大-> 小
  *      二叉查找树特性：中序遍历
  *       小->大：
@@ -37,6 +38,9 @@ public class BaseTreeRecursion {
      * 基础：前序遍历
      * 1、递归
      * 2、迭代：结合stack实现
+     *
+     *
+     * https://cloud.tencent.com/developer/article/1833267
      */
     public List<Integer> preorderTraversal(TreeNode root) {
 //        //1、递归
@@ -77,6 +81,8 @@ public class BaseTreeRecursion {
      * 1、递归
      * 2、迭代：结合stack实现
      *   2.1 root入栈后，优先把所有left都入栈
+     *
+     * https://cloud.tencent.com/developer/article/1833267
      */
     public List<Integer> inorderTraversal(TreeNode root) {
 //        //1、递归
@@ -118,6 +124,12 @@ public class BaseTreeRecursion {
      * 基础：后序遍历
      * 1、递归
      * 2、迭代：结合stack实现
+     *      1. 压入root节点
+     *      2. peek查看tmp节点，根据left，right 为空，pop数据
+     *      3. tmp的左右节点不为空，就压入栈。
+     *      4. 左右节点压入栈后，切断左右节点与根节点的联系，方便后续pop根节点。
+     *
+     * https://cloud.tencent.com/developer/article/1833267
      */
     public List<Integer> postorderTraversal(TreeNode root) {
 //        //1、递归
@@ -125,7 +137,7 @@ public class BaseTreeRecursion {
 //        postorderRecr(root, result);
 //        return result;
 
-        //2、迭代 好理解版
+        //2、迭代
         if (root == null){
             return null;
         }
@@ -133,15 +145,19 @@ public class BaseTreeRecursion {
         Stack<TreeNode> stack = new Stack<TreeNode>();
         stack.push(root);
         while (!stack.isEmpty()){
-            TreeNode node = stack.peek();
-            if (node.left == null && node.right == null) {
+            TreeNode tmp = stack.peek();
+            if (tmp.left == null && tmp.right == null) {
                 result.add(stack.pop().val);
             }
-            if (node.left != null) {
-                stack.push(node.left);
+            if (tmp.left != null) {
+                stack.push(tmp.left);
+                //当前节点的左节点压入栈后，切断当前节点 与 左节点 的联系，方便后续pop数据
+                tmp.left = null;
             }
-            if (node.right != null) {
-                stack.push(node.left);
+            if (tmp.right != null) {
+                stack.push(tmp.right);
+                //当前节点的右节点压入栈后，切断当前节点 与 右节点 的联系，方便后续pop数据
+                tmp.right = null;
             }
         }
         return result;
