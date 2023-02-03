@@ -38,7 +38,9 @@ public class BaseTreeRecursion {
      * 基础：前序遍历
      * 1、递归
      * 2、迭代：结合stack实现
-     *
+     *      1、tmp = root，stack不为空 或 tmp不为空，死循环
+     *      2、while tmp入栈后，优先将left入栈，入栈时即 root -> left push入栈
+     *      3、left都入栈后，stack.pop()，tmp = pop.right； 下次循环tmp会入栈，即right入栈； 至此-》root->left->right 依次入栈
      *
      * https://cloud.tencent.com/developer/article/1833267
      */
@@ -75,12 +77,13 @@ public class BaseTreeRecursion {
         preorderRecr(root.left, list);
         preorderRecr(root.right, list);
     }
-
     /**
      * 基础：中序遍历
      * 1、递归
      * 2、迭代：结合stack实现
-     *   2.1 root入栈后，优先把所有left都入栈
+     *   和前序遍历的区别在于
+     *      1、前序是在内层while 中循环left节点时添加。
+     *      2、中序是在pop数据后添加，pop出来的是最左叶子结点开始的。所以就等同于 left -> root -> right；
      *
      * https://cloud.tencent.com/developer/article/1833267
      */
@@ -172,7 +175,25 @@ public class BaseTreeRecursion {
         list.add(root.val);
     }
 
-
+    /**
+     * 层序遍历
+     */
+    private List<Integer> layerorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            TreeNode poll = queue.poll();
+            result.add(poll.val);
+            if (poll.left != null) {
+                queue.offer(poll.left);
+            }
+            if (poll.right != null) {
+                queue.offer(poll.left);
+            }
+        }
+        return result;
+    }
 
 
     /**
