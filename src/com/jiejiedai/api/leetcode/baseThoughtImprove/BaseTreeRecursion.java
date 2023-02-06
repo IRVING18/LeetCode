@@ -1,6 +1,5 @@
 package com.jiejiedai.api.leetcode.baseThoughtImprove;
 
-import com.jiejiedai.api.leetcode.ListNode;
 import com.jiejiedai.api.leetcode.TreeNode;
 
 import java.util.*;
@@ -890,6 +889,8 @@ public class BaseTreeRecursion {
 
 
     /**
+     * 剑指 Offer 64. 求1+2+…+n
+     * https://leetcode.cn/problems/qiu-12n-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cafihze
      *
      * 用乘除：直接等差数列求和 (n * (n + 1)) / 2
      * 用递归： 需要用if
@@ -905,6 +906,9 @@ public class BaseTreeRecursion {
     }
 
     /**
+     * 剑指 Offer 68 - I. 二叉搜索树的最近公共祖先
+     * https://leetcode.cn/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cafihze
+     *
      * 思路：
      * 1、二叉搜索树 => 左子树 < node < 右子树
      * p、q，都小于node，说明在左子树中
@@ -938,11 +942,70 @@ public class BaseTreeRecursion {
     }
 
     /**
+     * 剑指 Offer 68 - II. 二叉树的最近公共祖先
+     * https://leetcode.cn/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cafihze
+     *
      * 条件：二叉树
      *
      * 题解：https://leetcode.cn/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/solution/mian-shi-ti-68-ii-er-cha-shu-de-zui-jin-gong-gon-7/
      */
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor2(root.left, p, q);
+        TreeNode right = lowestCommonAncestor2(root.right, p, q);
+        if (left == null) return right;
+        if (right == null) return left;
+        return root;//left != null  && right != null
+    }
+
+    /**
+     * 输入某二叉树的前序遍历和中序遍历的结果，请构建该二叉树并返回其根节点。
+     *
+     * 假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
+     *
+     * https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cafihze
+     *
+     * 思路：
+     * 前序遍历：[根，{左子树的前序遍历结果}, {右子树的前序遍历结果}]
+     * 中序遍历：[{左子树的中序遍历结果} , 根 , {右子树的中序遍历结果}]
+     *
+     * 1、前序遍历的root在第一个，可以找到对应在中序遍历的root 的角标。即可以得到 root的左右子树的数量。
+     * 2、所以可以得到递归的方式，获取前序 根 后，根据左右子树数量，分别递归左右子树。
+     */
+    Map<Integer, Integer> inMap = new HashMap<>();
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        //存储中序遍历的值对应的角标。方便计算左右子树数量
+        for (int i = 0; i < inorder.length; i++) {
+            inMap.put(inorder[i], i);
+        }
+        //递归构建
+        return build(preorder, 0, preorder.length - 1, 0, inorder.length - 1);
+    }
+
+    public TreeNode build(int[] preorder, int preLeft, int preRight, int inLeft, int inRight) {
+        if (preLeft > preRight) {
+            return null;
+        }
+
+        //前序遍历的 preLeft 就是根节点
+        int preRootIndex = preLeft;
+        //获取根节点在 中序遍历中的角标
+        int inRootIndex = inMap.get(preorder[preRootIndex]);
+
+        //根据中序遍历结果，获取 {左子树的节点数量}
+        int leftSubTreeSize = inRootIndex - inLeft;
+
+        //创建当前root节点
+        TreeNode root = new TreeNode(preorder[preRootIndex]);
+
+        //递归创建左右子树
+        root.left = build(preorder, preLeft + 1, preLeft + leftSubTreeSize, inLeft, inRootIndex - 1);
+        root.right = build(preorder, preLeft + leftSubTreeSize + 1, preRight, inRootIndex + 1, inRight);
+
+        return root;
 
     }
+
+
 }
