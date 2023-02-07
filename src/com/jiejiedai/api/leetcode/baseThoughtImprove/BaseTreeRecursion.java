@@ -959,6 +959,7 @@ public class BaseTreeRecursion {
     }
 
     /**
+     * 剑指 Offer 07. 重建二叉树
      * 输入某二叉树的前序遍历和中序遍历的结果，请构建该二叉树并返回其根节点。
      *
      * 假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
@@ -1007,5 +1008,46 @@ public class BaseTreeRecursion {
 
     }
 
+    /**
+     *
+     * 剑指 Offer 33. 二叉搜索树的后序遍历序列
+     * 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 true，否则返回 false。假设输入的数组的任意两个数字都互不相同。
+     *
+     * https://leetcode.cn/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/solution/mian-shi-ti-33-er-cha-sou-suo-shu-de-hou-xu-bian-6/
+     *
+     * 思路：
+     * 后序遍历： [{左子树后序遍历结果} , {右子树后序遍历结果}, 根]
+     *
+     * 又因为，二叉搜索树所以：{左子树} < 根 < {右子树}
+     *
+     * 递归判断，每个 【{左},{右},根】是否满足二叉搜索树结果。
+     * 1、获取数组第一个大于根的数：m => 若满足二叉搜索树 那么 m就是{右子树的第一个元素}
+     * 2、获取数组m往后的，第一个小于等于根的数 p； => 若满足二叉搜索树，那么 p == 根。
+     * 3、故得到：p == j即满足当前的【{左},{右},根】为二叉搜索树，
+     * 4、递归 分别判断{左子树}{右子树}
+     *
+     * 5、特殊情况，i>=j 即没有左右子树了。return true
+     *
+     */
+    public boolean verifyPostorder(int[] postorder) {
+        return recur(postorder, 0, postorder.length - 1);
+    }
+
+    boolean recur(int[] postorder, int i, int j) {
+        //i >= j ，即没有左右子树了
+        if (i >= j) return true;
+        int m = i;
+        //1、获取数组中第一个大于 root 的数，即{右子树}的第一个元素
+        while (postorder[m] < postorder[j]) {
+            m++;
+        }
+        //2、获取数组m 往后的，第一个小于root的数，若满足二叉搜索树，那么p 应该等与 j
+        int p = m;
+        while (postorder[p] > postorder[j]) {
+            p++;
+        }
+        //3、递归判断 {左子树} {右子树} 是否满足二叉搜索树条件。
+        return p == j && recur(postorder, i, m - 1) && recur(postorder, m, j - 1);
+    }
 
 }
