@@ -4,6 +4,64 @@ package com.jiejiedai.api.leetcode.baseThoughtImprove;
  * 二维数组的收集
  */
 public class BaseArrayMatrix {
+
+    /**
+     * 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+     * 示例 1：
+     * 输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]
+     * 输出：[1,2,3,6,9,8,7,4,5]
+     *
+     * 链接：https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof
+     *
+     * 思路：
+     * 设 l,r,t,b 左右上下，四个标识
+     *
+     *      打印方向     打印   打印后   是否结束
+     * 1、从左至右打印    l->r   t+1      t < b
+     * 2、从上至下打印    t->b   r-1      l < r
+     * 3、从右至左打印    r->l   b-1      t < b
+     * 4、从下至上打印    b->t   l+1      l < r
+     */
+    public int[] spiralOrder(int[][] matrix) {
+        if (matrix.length == 0) return new int[]{};
+
+        int l = 0;
+        int r = matrix[0].length - 1;
+        int t = 0;
+        int b = matrix.length - 1;
+        int[] res = new int[matrix.length * matrix[0].length];
+        int index = 0;
+
+        //打印一圈为一次循环
+        while (true){
+            //1、从左至右打印
+            for (int i = l; i <= r; i++) {
+                res[index++] = matrix[t][i];
+            }
+            //判断是否结束
+            if (++t > b) break;
+
+            //2、从上至下打印
+            for (int i = t; i <= b; i++) {
+                res[index++] = matrix[i][r];
+            }
+            if (--r < l) break;
+
+            //3、从右至左
+            for (int i = r; i >= l; i--) {
+                res[index++] = matrix[b][i];
+            }
+            if (--b < t) break;
+
+            //4、从下至上
+            for (int i = b; i >= t; i--) {
+                res[index++] = matrix[i][l];
+            }
+            if (++l > r) break;
+        }
+
+        return res;
+    }
     /**
      * 剑指 Offer 04. 二维数组中的查找
      * <p>

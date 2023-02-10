@@ -37,4 +37,35 @@ public class BitOperationTest {
 
         return count;
     }
+
+    /**
+     *
+     * a(i)  b(i)  无进位和n(i)  进位c(i+1)
+     * 0      0        0            0
+     * 0      1        1            0
+     * 1      0        1            0
+     * 1      1        0            1
+     *
+     * 非进位和：异或运算
+     * 进位和：与运算 + 左移一位
+     *
+     * 所以和s = {非进位和n(i)} + {进位c(i+1)}
+     * => s = n + c
+     */
+    public int add(int a, int b) {
+        //进位为0时跳出
+        while (b!= 0) {
+            //1、进位和 c 暂存
+            int c = (a & b) << 1;
+            //2、非进位和
+            a ^= b;
+            //3、b = 进位
+            b = c;
+        }
+        return a;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("  "+ ( 3 & 15 ));
+    }
 }
