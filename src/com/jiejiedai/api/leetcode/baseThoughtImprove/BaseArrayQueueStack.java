@@ -357,4 +357,33 @@ public class BaseArrayQueueStack {
         return queue.isEmpty() ? ' ' : queue.poll();
     }
 
+    /**
+     *
+     * 思路：
+     * 利用辅助栈操作
+     *
+     * 1、将pushed数据压入tmp栈，同时使用i记录poped角标位置
+     * 2、循环
+     *      2.1遍历pushed数组，将数据压入tmp栈中
+     *      2.2判断tmp栈顶数据是否和 poped数组 的i角标的值相同，相同tmp.pop
+     * 3、判断tmp是否为空，为空说明pushed和poped是一组
+     *
+     */
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        //1、辅助栈
+        Stack<Integer> tmp = new Stack<>();
+        //用于记录popped数组的角标
+        int i = 0;
+        //2、循环遍历pushed数组
+        for (int num : pushed) {
+            tmp.push(num);
+            //判断tmp栈顶数据和popped数组 i位置数据是否相同，相同pop；
+            while (!tmp.isEmpty() && tmp.peek() == popped[i]){
+                tmp.pop();
+                i ++;
+            }
+        }
+        //3、判断是否为空
+        return tmp.isEmpty();
+    }
 }
