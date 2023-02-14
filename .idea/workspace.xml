@@ -27,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2015">
-              <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+            <state relative-caret-position="555">
+              <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
               <folding>
                 <element signature="e#8762#8763#0" expanded="true" />
                 <element signature="e#8804#8805#0" expanded="true" />
@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayQueueStack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="378" column="12" lean-forward="true" selection-start-line="378" selection-start-column="12" selection-end-line="378" selection-end-column="12" />
+            <state relative-caret-position="363">
+              <caret line="408" column="8" selection-start-line="408" selection-start-column="8" selection-end-line="431" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -520,12 +520,13 @@
       <workItem from="1675734494790" duration="3227000" />
       <workItem from="1675738997777" duration="3895000" />
       <workItem from="1675994005772" duration="1302000" />
-      <workItem from="1676254824996" duration="400000" />
+      <workItem from="1676254824996" duration="642000" />
+      <workItem from="1676338745917" duration="1561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="428244000" />
+    <option name="totallyTimeSpent" value="430047000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -540,7 +541,7 @@
     <frame x="-1999" y="-618" width="1286" height="1127" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.23713826" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.2403537" />
       <window_info id="Structure" order="1" sideWeight="0.6293436" side_tool="true" weight="0.2778187" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -557,7 +558,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22351798" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22351798" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.2857143" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.39184952" />
@@ -997,23 +998,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2015">
-          <caret line="37" column="42" lean-forward="true" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-          <folding>
-            <element signature="e#8762#8763#0" expanded="true" />
-            <element signature="e#8804#8805#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseSortTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16560">
           <caret line="1106" column="13" selection-start-line="1106" selection-start-column="13" selection-end-line="1106" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayMatrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="42" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+          <folding>
+            <element signature="e#8762#8763#0" expanded="true" />
+            <element signature="e#8804#8805#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1107,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayQueueStack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="378" column="12" lean-forward="true" selection-start-line="378" selection-start-column="12" selection-end-line="378" selection-end-column="12" />
+        <state relative-caret-position="363">
+          <caret line="408" column="8" selection-start-line="408" selection-start-column="8" selection-end-line="431" selection-end-column="19" />
         </state>
       </provider>
     </entry>

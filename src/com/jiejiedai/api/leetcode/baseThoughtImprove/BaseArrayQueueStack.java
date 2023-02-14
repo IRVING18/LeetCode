@@ -395,4 +395,60 @@ public class BaseArrayQueueStack {
         //3、判断是否为空
         return tmp.isEmpty();
     }
+
+    /**
+     * 给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。
+     *
+     * 示例:
+     *
+     * 输入: nums = [1,3,-1,-3,5,3,6,7], 和 k = 3
+     * 输出: [3,3,5,5,6,7]
+     * 解释:
+     *
+     *   滑动窗口的位置                最大值
+     * ---------------               -----
+     * [1  3  -1] -3  5  3  6  7       3
+     *  1 [3  -1  -3] 5  3  6  7       3
+     *  1  3 [-1  -3  5] 3  6  7       5
+     *  1  3  -1 [-3  5  3] 6  7       5
+     *  1  3  -1  -3 [5  3  6] 7       6
+     *  1  3  -1  -3  5 [3  6  7]      7
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode.cn/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     *
+     * 思路：
+     * 1、使用双端队列存储窗口的 最大值->最小值（不需要严格存储，和最小值的栈一样。例如[-1,2,3,5] 从[-1,2,3] 变为[2,3,5]时，我们只存着5也是ok的）
+     * 滑动窗口：设窗口左边界为i，右边界j。那么i ∈ [1-k, n-k] ，j ∈ [0,n-1]
+     *      1、处理左边界i：若 i>0且队首数据deque.peekFirst() == num[i-1]（就是刚划过的数据），那么需要removeFirst();
+     *      2、处理有边界j：遍历删除deque中，小于num[j]的数，并将num[j]添加到队尾。
+     *      3、获取res窗口值，若 i >= 0时，说明窗口已经在nums中了。res[i]=deque.First();
+     */
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums.length == 0 || k == 0)return new int[]{};
+
+        //1、双端队列
+        Deque<Integer> deque = new LinkedList<>();
+        //初始化res
+        int[] res = new int[nums.length - k + 1];
+
+        //滑动窗口
+        for (int i = 1 - k, j = 0; j < nums.length; i++, j++) {
+            //1、处理左边界i
+            if (i > 0 && nums[i - 1] == deque.peekFirst()) {
+                deque.removeFirst();
+            }
+            //2、处理有边界j
+            while (!deque.isEmpty() && nums[j] > deque.peekLast()) {
+                deque.removeLast();
+            }
+            deque.addLast(nums[j]);
+            //3、获取res窗口值
+            if (i>= 0){
+                res[i] = deque.peekFirst();
+            }
+        }
+        return res;
+    }
 }
