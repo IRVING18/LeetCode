@@ -40,8 +40,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayQueueStack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="408" column="8" selection-start-line="408" selection-start-column="8" selection-end-line="431" selection-end-column="19" />
+            <state relative-caret-position="315">
+              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding>
+                <element signature="e#3752#3753#0" expanded="true" />
+                <element signature="e#3798#3799#0" expanded="true" />
+                <element signature="e#3826#3827#0" expanded="true" />
+                <element signature="e#3872#3873#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -267,7 +273,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-1999" />
     <option name="y" value="-618" />
-    <option name="width" value="1286" />
+    <option name="width" value="1475" />
     <option name="height" value="1127" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -277,7 +283,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -315,6 +320,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -521,12 +527,13 @@
       <workItem from="1675738997777" duration="3895000" />
       <workItem from="1675994005772" duration="1302000" />
       <workItem from="1676254824996" duration="642000" />
-      <workItem from="1676338745917" duration="1561000" />
+      <workItem from="1676338745917" duration="1669000" />
+      <workItem from="1676427040859" duration="1005000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="430047000" />
+    <option name="totallyTimeSpent" value="431160000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -538,10 +545,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1999" y="-618" width="1286" height="1127" extended-state="0" />
+    <frame x="-1999" y="-618" width="1475" height="1127" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.2403537" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.37065637" visible="true" weight="0.21214236" />
       <window_info id="Structure" order="1" sideWeight="0.6293436" side_tool="true" weight="0.2778187" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -558,7 +565,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22351798" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.22351798" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.2857143" />
       <window_info anchor="bottom" id="Thumbnails" order="13" weight="0.39184952" />
@@ -1108,8 +1115,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jiejiedai/api/leetcode/baseThoughtImprove/BaseArrayQueueStack.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="408" column="8" selection-start-line="408" selection-start-column="8" selection-end-line="431" selection-end-column="19" />
+        <state relative-caret-position="315">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding>
+            <element signature="e#3752#3753#0" expanded="true" />
+            <element signature="e#3798#3799#0" expanded="true" />
+            <element signature="e#3826#3827#0" expanded="true" />
+            <element signature="e#3872#3873#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

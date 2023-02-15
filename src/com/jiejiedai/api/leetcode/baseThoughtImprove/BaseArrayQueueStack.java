@@ -18,6 +18,8 @@ import java.util.*;
  *
  * 2、思路
  *  利用辅助栈操作 validateStackSequences
+ *  双栈实现：min O(1) 的栈
+ *  双队列（一个双向队列）实现：max O(1)的队列
  */
 public class BaseArrayQueueStack {
     /**
@@ -84,13 +86,45 @@ public class BaseArrayQueueStack {
      * https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
      */
     class MinStack {
+//      方法一：插入时操作min栈，保证min和主栈数量一致，方便pop
+//        Stack<Integer> stackAll;
+//        Stack<Integer> stackMin;
+//
+//        public MinStack() {
+//            stackAll = new Stack<>();
+//            stackMin = new Stack<>();
+//        }
+//
+//        public void push(int x) {
+//            stackAll.add(x);
+//            if (stackMin.isEmpty()) {
+//                stackMin.add(x);
+//                return;
+//            }
+//            if (x < stackMin.peek()) {
+//                stackMin.add(x);
+//            } else {
+//                stackMin.add(stackMin.peek());
+//            }
+//        }
+//
+//        public void pop() {
+//            stackMin.pop();
+//            stackAll.pop();
+//        }
+//
+//        public int top() {
+//            return stackAll.peek();
+//        }
+//
+//        public int min() {
+//            return stackMin.peek();
+//        }
 
+//      方法二：插入时，<= 时插入，pop时判断是否==min.peek()
         Stack<Integer> stackAll;
         Stack<Integer> stackMin;
 
-        /**
-         * initialize your data structure here.
-         */
         public MinStack() {
             stackAll = new Stack<>();
             stackMin = new Stack<>();
@@ -98,20 +132,16 @@ public class BaseArrayQueueStack {
 
         public void push(int x) {
             stackAll.add(x);
-            if (stackMin.isEmpty()) {
+            if (stackMin.isEmpty() || x <= stackMin.peek()) {
                 stackMin.add(x);
-                return;
-            }
-            if (x < stackMin.peek()) {
-                stackMin.add(x);
-            } else {
-                stackMin.add(stackMin.peek());
             }
         }
 
         public void pop() {
-            stackMin.pop();
-            stackAll.pop();
+            int res = stackAll.pop();
+            if (res == stackMin.peek()) {
+                stackMin.pop();
+            }
         }
 
         public int top() {
@@ -122,7 +152,58 @@ public class BaseArrayQueueStack {
             return stackMin.peek();
         }
     }
+    /**
+     * 面试题59 - II. 队列的最大值
+     * 请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back 和 pop_front 的均摊时间复杂度都是O(1)。
+     *
+     * 若队列为空，pop_front 和 max_value 需要返回 -1
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode.cn/problems/dui-lie-de-zui-da-zhi-lcof
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     *
+     * 思路：https://leetcode.cn/problems/dui-lie-de-zui-da-zhi-lcof/solution/ru-he-jie-jue-o1-fu-za-du-de-api-she-ji-ti-by-z1m/
+     * 和楼上min栈的相似，这题是队列的操作。
+     * 1、初始化一个maxQueue，和一个主队列
+     * 2、在offer时，while判断队尾数据是否小于 x，若小于就都出队列。循环结束将x插入队尾。（需要操作队尾，所以用双向队列deque）
+     * 3、在poll时，判断主队列poll的数据 == maxQueue的队首数据，若相等maxQueue.pollFirst()
+     */
+    class MaxQueue {
+        Queue<Integer> queue;
+        Deque<Integer> maxDeque;
+        public MaxQueue() {
+            queue = new LinkedList<>();
+            maxDeque = new LinkedList<>();
+        }
 
+        public int max_value() {
+            if (maxDeque.isEmpty()){
+                return -1;
+            }
+            return maxDeque.peekFirst();
+        }
+
+        public void push_back(int value) {
+            queue.offer(value);
+            //2、在插入时，while判断队尾数据是否小于 x，若小于就都出队列。循环结束将x插入队尾。（需要操作队尾，所以用双向队列deque）
+            while (!maxDeque.isEmpty() && maxDeque.peekLast() < value){
+                maxDeque.pollLast();
+            }
+            maxDeque.offerLast(value);
+        }
+
+        public int pop_front() {
+            if (queue.isEmpty()) {
+                return -1;
+            }
+            int res = queue.poll();
+            //3、在poll时，判断主队列poll的数据 == maxQueue的队首数据，若相等maxQueue.pollFirst()
+            if (maxDeque.peekFirst() == res) {
+                maxDeque.pollFirst();
+            }
+            return res;
+        }
+    }
 
     /**
      * 217. 存在重复元素
