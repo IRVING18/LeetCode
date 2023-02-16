@@ -11,15 +11,13 @@ import java.util.*;
  * 1、利用Queue队列
  * 2、递归
  * 3、遍历
- *      3.1 前序遍历 根->left->right ：递归、stack
- *      3.2 中序遍历 left->根->right ：递归、stack
- *      3.3 后序遍历 left->right->根 ：递归、stack
- *      3.4 层序遍历 ：利用queue队列
- * 3、广度优先算法 : 结合队列 （层序遍历）
- * 4、深度优先算法 : 结合 递归 或 栈 （前序、中序、后序）
+ *      3.1 前序遍历 根->left->right ：递归、stack   =》 深度优先算法
+ *      3.2 中序遍历 left->根->right ：递归、stack   =》 深度优先算法
+ *      3.3 后序遍历 left->right->根 ：递归、stack   =》 深度优先算法
+ *      3.4 层序遍历 ：利用queue队列                 =》 广度优先算法
  * https://leetcode.cn/tag/depth-first-search/problemset/
  *
- * 5、二叉查找树的特性：中序遍历：，可递归打印小->大，大-> 小
+ * 4、二叉查找树的特性：中序遍历：，可递归打印小->大，大-> 小
  *      二叉查找树特性：中序遍历
  *       小->大：
  *           recur(node.left) 左
@@ -30,6 +28,7 @@ import java.util.*;
  *           node.val 根
  *           recur(node.left) 左
  *
+ * 5、序列化二叉树：层序遍历
  */
 public class BaseTreeRecursion {
 
@@ -1050,4 +1049,72 @@ public class BaseTreeRecursion {
         return p == j && recur(postorder, i, m - 1) && recur(postorder, m, j - 1);
     }
 
+
+    /**
+     * 剑指 Offer 37. 序列化二叉树
+     *
+     * 序列化：层序遍历 + 队列
+     * 1、层序遍历node节点
+     * 2、当子节点为null时，也存储下来。方便反序列化使用
+     *
+     * 反序列化：队列 + i标记
+     * 1、先还原 root节点，将root节点插入queue
+     * 2、循环queue，i = 1从1开始。
+     *      2.1 判断是否num[i] == "null"，为null不操作。不为null创建节点，添加到left上，并 i++；
+     *      2.2 继续判断i++后的right节点 num[i] == "null" 不为null创建节点，添加到right上，并 i++；
+     */
+    public class Codec {
+
+        // Encodes a tree to a single string.
+        public String serialize(TreeNode root) {
+            if (root == null) {
+                return "[]";
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+            while (!queue.isEmpty()){
+                TreeNode node = queue.poll();
+                if (node != null) {
+                    sb.append(node.val).append(",");
+                    queue.offer(node.left);
+                    queue.offer(node.right);
+                } else {
+                    sb.append("null").append(",");
+                }
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append("]");
+            return sb.toString();
+        }
+
+        // Decodes your encoded data to tree.
+        public TreeNode deserialize(String data) {
+            if (data.equals("[]")) return null;
+            String[] nums = data.substring(1,data.length() - 1).split(",");
+            TreeNode root = new TreeNode(Integer.valueOf(nums[0]));
+            Queue<TreeNode> queue = new LinkedList<>();
+            queue.offer(root);
+            int i = 1;
+            while (!queue.isEmpty()){
+                TreeNode node = queue.poll();
+                //左子树
+                if (!nums[i].equals("null")){
+                    TreeNode left = new TreeNode(Integer.valueOf(nums[i]));
+                    node.left = left;
+                    queue.offer(left);
+                }
+                i++;
+                if (!nums[i].equals("null")){
+                    TreeNode right = new TreeNode(Integer.valueOf(nums[i]));
+                    node.right = right;
+                    queue.offer(right);
+                }
+                i++;
+            }
+            return root;
+        }
+
+    }
 }
