@@ -29,6 +29,21 @@ import java.util.*;
  *           recur(node.left) 左
  *
  * 5、序列化二叉树：层序遍历
+ *
+ * 6、递归模板
+ * backtrack(路径，选择列表) {
+ *     if (满足条件) {
+ *         # 将路径放入结果集
+ *         return
+ *     }
+ *     for 选择 in 选择列表
+ *         # 做出选择
+ *         路径.add(选择)
+ *         # 进入下层决策树
+ *         backtrack(路径，选择列表)
+ *         # 撤销选择
+ *         路径.remove(选择)
+ * }
  */
 public class BaseTreeRecursion {
 
@@ -539,7 +554,7 @@ public class BaseTreeRecursion {
     }
 
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 //        TreeNode node = new TreeNode(1);
 //        TreeNode right = new TreeNode(2);
 //        node.left = null;
@@ -558,8 +573,8 @@ public class BaseTreeRecursion {
 //
 //        System.out.println(exist1(arr, "ABCCED") ? "true" : "false");
 
-        System.out.println(35  % 10 +"   "+35 / 10);
-    }
+//        System.out.println(35  % 10 +"   "+35 / 10);
+//    }
 
     /**
      * 剑指 Offer 12. 矩阵中的路径
@@ -1116,5 +1131,73 @@ public class BaseTreeRecursion {
             return root;
         }
 
+    }
+
+    /**
+     * 输入一个字符串，打印出该字符串中字符的所有排列。
+     *
+     *  
+     *
+     * 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
+     *
+     *  
+     *
+     * 示例:
+     *
+     * 输入：s = "abc"
+     * 输出：["abc","acb","bac","bca","cab","cba"]
+     *
+     * 来源：力扣（LeetCode）
+     * 链接：https://leetcode.cn/problems/zi-fu-chuan-de-pai-lie-lcof
+     * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     *
+     * 递归模板
+     * backtrack(路径，选择列表) {
+     *     if (满足条件) {
+     *         # 将路径放入结果集
+     *         return
+     *     }
+     *
+     *     for 选择 in 选择列表
+     *         # 做出选择
+     *         路径.add(选择)
+     *
+     *         # 进入下层决策树
+     *         backtrack(路径，选择列表)
+     *
+     *         # 撤销选择
+     *         路径.remove(选择)
+     * }
+     *
+     */
+    public static String[] permutation(String s) {
+        char[] chars = s.toCharArray();
+        Set<String> set = new HashSet<>();
+        backtrack(chars,new StringBuilder(),set,new boolean[chars.length]);
+        return set.toArray(new String[0]);
+    }
+
+    private static void backtrack(char[] chars, StringBuilder sb,Set<String> set, boolean[] visited) {
+        //1、终止条件
+        if (sb.length() == chars.length) {
+            set.add(sb.toString());
+            return;
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+            //做出选择
+            if (visited[i]) continue;
+            sb.append(chars[i]);
+            //进入下层决策树
+            visited[i] = true;
+            backtrack(chars, sb, set, visited);
+            //撤销选择
+            sb.deleteCharAt(sb.length() - 1);
+            visited[i] = false;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(permutation("abc")));
     }
 }
