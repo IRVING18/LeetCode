@@ -20,8 +20,57 @@ import java.util.*;
  *  利用辅助栈操作 validateStackSequences
  *  双栈实现：min O(1) 的栈
  *  双队列（一个双向队列）实现：max O(1)的队列
+ *
+ * 3、重复数据
+ *      => Hash
+ *      => 数组标记
+ *      => 摩尔投票法
  */
 public class BaseArrayQueueStack {
+
+
+    public int majorityElement(int[] nums) {
+        //hash
+//        HashMap<Integer, Integer> map = new HashMap<>();
+//
+//        for (int i = 0; i < nums.length; i++) {
+//            if (map.containsKey(nums[i])) {
+//                map.put(nums[i], map.get(nums[i]) + 1);
+//            } else {
+//                map.put(nums[i], 1);
+//            }
+//            if (map.get(nums[i]) > nums.length / 2) {
+//                return nums[i];
+//            }
+//        }
+//        return -1;
+
+        //排序法：排序结束，数组中间的数一定是众数。
+
+        //摩尔投票法：
+        //推论一：若有众数，那么记众数 +1 ，非众数 -1 ，那么所有数字的票数一定 > 0
+        //推论二：若前 a 个数字的 票数 = 0，那么剩余的数 的票数和 一定还>0，而且众数 在剩余的数中 仍是众数。
+
+        //根据上边的结论，
+        // 1、设众数为 i=0 的数
+        // 2、计算票数，== 0 的时候，就设i + 1为新的众数
+        // 3、直到数组结束
+
+        int x = 0;
+        int votes = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (votes == 0) {
+                x = nums[i];
+            }
+            if (x == nums[i]) {
+                votes++;
+            } else {
+                votes--;
+            }
+        }
+        return x;
+    }
+
     /**
      * 剑指 Offer 09. 用两个栈实现队列
      * 思路：
